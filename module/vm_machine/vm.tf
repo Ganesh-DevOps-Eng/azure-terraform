@@ -45,7 +45,8 @@ resource "azurerm_linux_virtual_machine" "vm_a" {
   }
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("C:/Users/Sanatan_Coaching/.ssh/id_rsa.pub")
+    #public_key = file("C:/Users/Sanatan_Coaching/.ssh/id_rsa.pub")
+    public_key = file("C:/Users/cgt_jpr_pc_Admin/.ssh/id_rsa.pub")
   }
 
   disable_password_authentication = true
@@ -74,7 +75,8 @@ source_image_reference {
 }
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("C:/Users/Sanatan_Coaching/.ssh/id_rsa.pub")
+    #public_key = file("C:/Users/Sanatan_Coaching/.ssh/id_rsa.pub")
+    public_key = file("C:/Users/cgt_jpr_pc_Admin/.ssh/id_rsa.pub")
   }
 
   disable_password_authentication = true

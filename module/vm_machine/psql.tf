@@ -76,6 +76,7 @@ resource "azurerm_private_dns_zone" "postgresql" {
   resource_group_name = var.resource_group_name
 }
 
+
 # DNS A Record for PostgreSQL Server A
 resource "azurerm_private_dns_a_record" "postgresql_a" {
   name                = "pilot-psqlserver-a"
@@ -92,4 +93,13 @@ resource "azurerm_private_dns_a_record" "postgresql_b" {
   resource_group_name = var.resource_group_name
   ttl                 = 300
   records             = [azurerm_private_endpoint.psql_private_endpoint_b.private_service_connection[0].private_ip_address]
+}
+
+
+# Link the private DNS zone to the virtual network
+resource "azurerm_private_dns_zone_virtual_network_link" "Vnet_DNS" {
+  name                  = "test"
+  resource_group_name   = var.resource_group_name
+  private_dns_zone_name = azurerm_private_dns_zone.postgresql.name
+  virtual_network_id    = var.virtual_network_id
 }

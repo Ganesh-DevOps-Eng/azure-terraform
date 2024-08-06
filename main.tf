@@ -27,6 +27,7 @@ module "vm_machine" {
   resource_group_name  = var.resource_group_name
   private_subnet_a_id            = module.vpc.private_subnet_a_id
   private_subnet_b_id            = module.vpc.private_subnet_b_id
+  virtual_network_id = module.vpc.vnet_id
   vm_name              = "ubuntu-vm"
   vm_size              = var.vm_size
   admin_username       = var.admin_username

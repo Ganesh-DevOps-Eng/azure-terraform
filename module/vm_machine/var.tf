@@ -37,3 +37,8 @@ variable "admin_password" {
   description = "Admin password for the VM"
   type        = string
 }
+
+variable "virtual_network_id" {
+  description = "virtual_network_address space"
+  type        = string
+}
